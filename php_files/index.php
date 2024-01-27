@@ -69,6 +69,21 @@
                     </div>
                 </div>
             </div>
+            <section id="blog" class="py-12">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl font-bold text-center mb-8">Blog</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold mb-2">Añadir entrada</h3>
+                            <p>Resumen o introducción de la entrada del blog...</p>
+                            <form>
+                                <input type="text" placeholder="comenta aqui">
+                                <input type="button" value="comentar">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
         <script src="script.js"></script>
     </body>
