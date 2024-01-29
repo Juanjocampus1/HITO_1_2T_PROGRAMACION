@@ -25,14 +25,14 @@
                         <div class="card-3d-wrapper">
                             <div class="card-front">
                                 <div class="center-wrap">
-                                    <form action="backend.php" method="post" class="section text-center">
+                                    <form action="sesion.php" method="post" class="section text-center">
                                         <h4 class="mb-4 pb-3">LOG IN</h4>
                                         <div class="form-group">
                                             <input type="email" name="logemail" class="form-style" placeholder="Tu Email" id="logemail" autocomplete="off" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Introduce un correo electrónico válido" required>
                                             <i class="input-icon uil uil-at"></i>
                                         </div>
                                         <div class="form-group mt-2">
-                                            <input type="password" class="form-style" name="password" placeholder="contraseña" autocomplete="off" minlength="5" title="Mínimo 5 palabras">
+                                            <input type="password" class="form-style" name="logpassword" placeholder="contraseña" autocomplete="off" minlength="5" title="Mínimo 8 letras">
                                             <i class="input-icon uil uil-lock-alt"></i>
                                         </div>
                                         <button type="submit" class="btn mt-4">ENVIAR</button>
@@ -41,7 +41,7 @@
                             </div>
                             <div class="card-back">
                                 <div class="center-wrap">
-                                    <form action="login.php" method="post" class="section text-center">
+                                    <form action="registro.php" method="post" class="section text-center">
                                         <h4 class="mb-4 pb-3">SING IN</h4>
                                         <div class="form-group">
                                             <input type="text" class="form-style" name="singname" placeholder="NOMBRE COMPLETO" id="singname" autocomplete="off" required>

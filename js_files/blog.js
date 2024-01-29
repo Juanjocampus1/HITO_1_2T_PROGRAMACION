@@ -15,3 +15,20 @@ document.getElementById('publishButton').addEventListener('click', function() {
         commentInput.value = ''; // Limpiar el campo de entrada
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtiene una referencia al botón de comentar
+    const commentButton = document.getElementById('commentButton');
+
+    // Agrega un evento de clic al botón
+    commentButton.addEventListener('click', function() {
+        // Verifica si el usuario ha iniciado sesión usando la variable JavaScript
+        if (!usuarioAutenticado) {
+            // Si no ha iniciado sesión, redirige a login.php
+            window.location.href = 'login.php';
+        } else {
+            // Si ha iniciado sesión, muestra la sección de comentarios
+            document.getElementById('commentSection').classList.toggle('hidden');
+        }
+    });
+});

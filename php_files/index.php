@@ -1,4 +1,18 @@
 <?php
+    // Iniciar la sesión si no está iniciada
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    // Verificar si el usuario ha iniciado sesión
+    if (!isset($_SESSION['usuario_logueado'])) {
+        // Si el usuario no ha iniciado sesión, redirigir a login.php
+        header('Location: login.php');
+        exit; // Asegura que el script se detenga después de redirigir
+    }
+
+    // Si el usuario ha iniciado sesión, el resto del código de index.php continuará ejecutándose normalmente
+
     $ip = $_SERVER['REMOTE_ADDR'];
     $date = date('Y-m-d H:i:s');
     setcookie('ip_fecha', json_encode(['ip' => $ip, 'fecha' => $date]), time() + (86400 * 30), "/"); //hago q la cookie valga 30 dias por poner una fecha
