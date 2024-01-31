@@ -25,7 +25,7 @@
                         <div class="card-3d-wrapper">
                             <div class="card-front">
                                 <div class="center-wrap">
-                                    <form action="sesion.php" method="post" class="section text-center">
+                                    <form action="action_session.php" method="post" class="section text-center">
                                         <h4 class="mb-4 pb-3">LOG IN</h4>
                                         <div class="form-group">
                                             <input type="email" name="logemail" class="form-style" placeholder="Tu Email" id="logemail" autocomplete="off" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Introduce un correo electrónico válido" required>
@@ -41,7 +41,7 @@
                             </div>
                             <div class="card-back">
                                 <div class="center-wrap">
-                                    <form action="registro.php" method="post" class="section text-center">
+                                    <form action="action_singin.php" method="post" class="section text-center">
                                         <h4 class="mb-4 pb-3">SING IN</h4>
                                         <div class="form-group">
                                             <input type="text" class="form-style" name="singname" placeholder="NOMBRE COMPLETO" id="singname" autocomplete="off" required>

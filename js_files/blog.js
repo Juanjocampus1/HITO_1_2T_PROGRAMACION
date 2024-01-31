@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
     commentButton.addEventListener('click', function() {
         // Verifica si el usuario ha iniciado sesión usando la variable JavaScript
         if (!usuarioAutenticado) {
-            // Si no ha iniciado sesión, redirige a login.php
-            window.location.href = 'login.php';
+            // Si no ha iniciado sesión, redirige a login_singin_index.php
+            window.location.href = 'login_singin_index.php';
         } else {
             // Si ha iniciado sesión, muestra la sección de comentarios
             document.getElementById('commentSection').classList.toggle('hidden');

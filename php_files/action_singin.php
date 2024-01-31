@@ -10,7 +10,8 @@
 
         var_dump($_POST);
 
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $opcion = ['cost' => 12];
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT, $opcion);
     }
 
     try {
