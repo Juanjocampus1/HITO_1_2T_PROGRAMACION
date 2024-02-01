@@ -1,11 +1,10 @@
 <?php
-    include_once 'action_session.php';
-    global $user;
-    session_start();
-    if (!isset($_SESSION['usuario_logueado'])) {
-        header('Location: login_singin_index.php');
-        exit;
-    }
+include_once 'action_session.php';
+session_start();
+if (!isset($_SESSION['usuario'])) {
+    header('Location: login_singin_index.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>

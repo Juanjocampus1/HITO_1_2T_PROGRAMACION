@@ -1,19 +1,22 @@
 <?php
+include 'config.php';
+global $conn;
 
 $correo = $_POST['logemail'];
-$contraseña = $_POST['logpassword'];
+$contrasena = $_POST['logpassword'];
 
-$conexion = new PDO('mysql:host=localhost;dbname=blog', 'root', '');
 $sql = "SELECT nombre, correo, contrasena FROM blog.usuario WHERE correo = :correo";
 
-$stmt = $conexion->prepare($sql);
+$stmt = $conn->prepare($sql);
 $stmt->bindParam(':correo', $correo);
 $stmt->execute();
 
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
+var_dump($result);
+
 if ($result) {
-    if (password_verify($contraseña, $result['logpassword'])) {
+    if (password_verify($contrasena, $result['contrasena'])) {
         session_start();
         $_SESSION['usuario'] = $result['nombre'];
         header('Location:blog_index.php');
@@ -22,6 +25,10 @@ if ($result) {
         echo '<a href="login_singin_index.php">Alta de usuarios</a>';
     }
 }
+else{
+    echo 'No se encontró el usuario con ese correo.';
+}
+
 
 /*
     include_once "config.php";
@@ -112,3 +119,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logemail'])) {
         echo "Error al conectar con la base de datos: " . $e->getMessage();
     }
 }
+*/
