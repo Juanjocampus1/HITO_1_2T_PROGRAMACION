@@ -72,6 +72,6 @@
                 <a href="blog_index.php" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">ACCEDER AL BLOG</a>
             </div>
         </div>
-        <script src="../js_files/script.js"></script>
+        <script src="../components/script.js"></script>
     </body>
 </html>

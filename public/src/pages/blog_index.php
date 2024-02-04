@@ -26,7 +26,7 @@ if (!isset($_SESSION['usuario'])) {
                         <div class="flex justify-end">
                             <button id="commentButton" class="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Comentar</button>
                         </div>
-                        <form action="../ACTIONS/Blog_Action.php" method="post">
+                        <form action="../../../ACTIONS/Almacenar_comentario_Action.php" method="post">
                             <div id="commentSection" class="hidden flex justify-center">
                                 <input type="text" id="commentInput" name="coment" placeholder="Escribe tu comentario aquí" class="mb-2 p-2 border rounded">
                                 <div class="flex justify-end">
@@ -41,6 +41,6 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </div>
         </section>
-        <script src="../js_files/blog.js"></script>
+        <script src="../components/blog.js"></script>
     </body>
 </html>

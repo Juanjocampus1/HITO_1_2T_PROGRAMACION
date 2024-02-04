@@ -1,3 +1,5 @@
+use blog;
+
 create table blog.usuario(
     ID int primary key auto_increment,
     nombre varchar (30),
@@ -5,6 +7,8 @@ create table blog.usuario(
     contrasena text(300),
     sector_profesional varchar(30)
 );
+
+drop table blog.usuario;
 
 create table blog.post(
     ID int primary key auto_increment,
@@ -15,7 +19,6 @@ create table blog.post(
     foreign key (autor) references usuario(ID)
 );
 
-drop table blog.usuario;
 drop table blog.post;
 
 SELECT * FROM blog.usuario;

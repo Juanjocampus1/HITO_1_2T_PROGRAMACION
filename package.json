@@ -1,0 +1,14 @@
+{
+  "name": "hito_1_2t_programacion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Juanjocampus1/HITO_1_2T_PROGRAMACION.git"
+  },
+  "private": true
+}
