@@ -39,4 +39,3 @@ if ($result) {
     // No se encontró ningún usuario con el correo electrónico proporcionado
     $error_msg = "El correo electrónico proporcionado no está registrado";
 }
-?>

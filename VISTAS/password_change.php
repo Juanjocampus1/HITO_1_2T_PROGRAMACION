@@ -19,7 +19,7 @@
                                 <div class="card-3d-wrapper">
                                     <div class="card-front">
                                         <div class="center-wrap">
-                                            <form action="passwor_change_action.php" method="post" class="section text-center">
+                                            <form action="../ACTIONS/passwor_change_action.php" method="post" class="section text-center">
                                                 <h4 class="mb-4 pb-3">CAMBIAR CONTRASEÑA</h4>
                                                 <div class="form-group ">
                                                     <input type="email" name="logemail1" class="form-style" placeholder="Tu Email" id="logemail" autocomplete="off" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Introduce un correo electrónico válido" required>

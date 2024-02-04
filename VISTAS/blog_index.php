@@ -26,12 +26,14 @@ if (!isset($_SESSION['usuario'])) {
                         <div class="flex justify-end">
                             <button id="commentButton" class="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Comentar</button>
                         </div>
-                        <div id="commentSection" class="hidden flex justify-center">
-                            <input type="text" id="commentInput" placeholder="Escribe tu comentario aquí" class="mb-2 p-2 border rounded">
-                            <div class="flex justify-end">
-                                <input type="button" id="publishButton" value="Publicar" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                        <form action="../ACTIONS/Blog_Action.php" method="post">
+                            <div id="commentSection" class="hidden flex justify-center">
+                                <input type="text" id="commentInput" name="coment" placeholder="Escribe tu comentario aquí" class="mb-2 p-2 border rounded">
+                                <div class="flex justify-end">
+                                    <input type="button" id="publishButton" value="Publicar" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                </div>
                             </div>
-                        </div>
+                        </form>
                         <div id="commentsDisplay" class="mt-4">
                             <!-- Aquí se mostrarán los comentarios -->
                         </div>

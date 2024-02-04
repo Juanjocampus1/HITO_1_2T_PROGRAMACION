@@ -18,5 +18,4 @@ create table blog.post(
 drop table blog.usuario;
 drop table blog.post;
 
-
 SELECT * FROM blog.usuario;
