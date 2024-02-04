@@ -3,7 +3,6 @@
     $date = date('Y-m-d H:i:s');
     setcookie('ip_fecha', json_encode(['ip' => $ip, 'fecha' => $date]), time() + (86400 * 30), "/"); //hago q la cookie valga 30 dias por poner una fecha
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>

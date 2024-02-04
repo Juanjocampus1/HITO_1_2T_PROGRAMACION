@@ -34,8 +34,20 @@
                                         <div class="form-group mt-2">
                                             <input type="password" class="form-style" name="logpassword" placeholder="contraseña" autocomplete="off" minlength="5" title="Mínimo 8 letras">
                                             <i class="input-icon uil uil-lock-alt"></i>
+                                            <?php
+                                            // Verificar si hay un mensaje de error en la URL
+                                            if (isset($_GET['error_msg'])) {
+                                                $error_msg = $_GET['error_msg'];
+                                                echo "<br><br><p>$error_msg</p>"; // Mostrar el mensaje de error
+                                            }
+                                            ?>
                                         </div>
                                         <button type="submit" class="btn mt-4">ENVIAR</button>
+                                        <p class="mb-0 mt-4 text-center">
+                                            <a href="#0" class="link">
+                                                ¿Olvidaste tu contraseña?
+                                            </a>
+                                        </p>
                                     </form>
                                 </div>
                             </div>
