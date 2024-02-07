@@ -1,5 +1,5 @@
 <?php
-    include 'config.php';
+    include '../config/config.php';
     global $conn;
 
     $correo = $_POST['logemail'];
@@ -19,14 +19,12 @@
         if (password_verify($contrasena, $result['contrasena'])) {
             session_start();
             $_SESSION['usuario'] = $result['nombre'];
-            header('Location:blog_index.php');
+            header('Location:../public/src/pages/blog_index.php');
         } else {
             $error_msg = "credenciales incorrectas";
         }
     }
     if (!empty($error_msg)) {
-        header("Location: login_singin_index.php?error_msg=" . urlencode($error_msg));
+        header("Location:../public/src/pages/login_singin_index.php?error_msg=" . urlencode($error_msg));
         exit;
     }
-
-

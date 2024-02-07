@@ -30,7 +30,7 @@
                                                     <i class="input-icon uil uil-lock-alt"></i>
                                                 </div>
                                                 <div class="form-group mt-2">
-                                                    <input type="password" class="form-style" name="logpassword2" placeholder="Repita su contraseña" autocomplete="off" minlength="5" title="Mínimo 8 letras">
+                                                    <input type="password" class="form-style" name="logpassword2" placeholder="confirmar contraseña" autocomplete="off" minlength="5" title="Mínimo 8 letras">
                                                     <i class="input-icon uil uil-lock-alt"></i>
                                                     <?php
                                                     // Verificar si hay un mensaje de error en la URL

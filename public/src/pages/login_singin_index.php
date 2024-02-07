@@ -44,7 +44,7 @@
                                         </div>
                                         <button type="submit" class="btn mt-4">ENVIAR</button>
                                         <p class="mb-0 mt-4 text-center">
-                                            <a href="#0" class="link">
+                                            <a href="password_change.php" class="link">
                                                 ¿Olvidaste tu contraseña?
                                             </a>
                                         </p>

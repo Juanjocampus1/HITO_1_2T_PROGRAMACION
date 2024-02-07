@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../config/config.php';
 global $conn;
 
 $contrasena = $_POST['logpassword1'];
@@ -29,7 +29,7 @@ if ($result) {
         $stmt_update->execute();
 
         // Redirigir al usuario a la página de inicio de sesión
-        header('Location: login_singin_index.php');
+        header('Location:../public/src/pages/login_singin_index.php');
         exit;
     } else {
         // Las contraseñas no coinciden
