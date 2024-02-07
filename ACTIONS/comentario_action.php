@@ -1,29 +1,31 @@
 <?php
-include_once '../config/config.php';
-global $conn;
-
-session_start();
-
-// Función para mostrar los comentarios
 function mostrarComentarios() {
-    global $conn;
-    // Obtener todos los comentarios y sus autores
-    $sql = "SELECT p.contenido, p.fecha, u.nombre
-            FROM post p
-            INNER JOIN usuario u ON p.autor = u.ID
-            ORDER BY p.fecha DESC"; // Ordenar por fecha descendente para mostrar los comentarios más recientes primero
+    $conn = new PDO('mysql:host=localhost;dbname=blog', 'root', '');
+
+    $usuario_actual = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
+
+    $sql = "select post.contenido,post.fecha, usuario.nombre
+            from post, usuario
+            order by post.fecha desc;";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($result as $row) {
-        echo "<div class='bg-white p-6 rounded-lg shadow-md mb-4'>";
+        echo "<div class='p-6 rounded-lg shadow-xl mb-4";
+        // Verificar si el autor del comentario es el usuario actualmente autenticado
+        if ($usuario_actual && $row['nombre'] === $usuario_actual) {
+            echo " bg-zinc-600"; // Si es el mismo usuario, aplicar el fondo zinc-600
+        } else {
+            echo " bg-white"; // Si no es el mismo usuario, mantener el fondo blanco
+        }
+        echo "'>";
         echo "<p><strong>Autor:</strong> " . $row['nombre'] . "</p>"; // Mostrar el nombre del autor
         echo "<p><strong>Contenido:</strong> " . $row['contenido'] . "</p>"; // Mostrar el contenido del comentario
-        echo "<p class='text-right text-xs'><strong>Fecha:</strong> " . $row['fecha'] . "</p>"; // Mostrar la fecha del comentario
+        echo "<p class='text-right text-xs'><strong>Publicado:</strong> " . $row['fecha'] . "</p>"; // Mostrar la fecha del comentario
         echo "</div>";
     }
 }
 
-mostrarComentarios(); // Llamar a la función para mostrar los comentarios
-
+// Llamar a la función para mostrar los comentarios
+mostrarComentarios();

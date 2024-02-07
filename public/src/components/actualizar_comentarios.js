@@ -1,16 +1,17 @@
 function cargarComentarios() {
-    // Hacer una petición AJAX para obtener los comentarios
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            // Actualizar el contenido de la sección de comentarios
-            document.getElementById("commentsDisplay").innerHTML = this.responseText;
+    // Realizar una solicitud AJAX para obtener los comentarios actualizados
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "obtener_comentarios.php", true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Actualizar la sección de comentarios con los nuevos datos
+            document.getElementById("commentsDisplay").innerHTML = xhr.responseText;
         }
     };
-    xhttp.open("GET", "../../ACTIONS/comentario_action.php", true);
-    xhttp.send();
+    xhr.send();
 }
 
-// Cargar los comentarios al cargar la página y cada 5 segundos
-window.onload = cargarComentarios;
-setInterval(cargarComentarios, 5000); // Actualizar cada 5 segundos
+// Llamar a la función para cargar comentarios cuando se carga la página
+window.onload = function() {
+    cargarComentarios();
+}

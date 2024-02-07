@@ -5,6 +5,6 @@ if (isset($_POST['logout'])) {
     session_destroy();
 
     // Redirigir al usuario a index.php
-    header('Location: index.php');
+    header('Location: ../public/src/pages/index.php');
     exit;
 }

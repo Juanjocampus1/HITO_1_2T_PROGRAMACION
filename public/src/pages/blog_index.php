@@ -1,11 +1,9 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-    header('Location: login_singin_index.php');
+    header('Location:login_singin_index.php');
     exit;
 }
-
-mostrarComentarios();
 ?>
 
 <!DOCTYPE html>
@@ -38,12 +36,9 @@ mostrarComentarios();
                     <input type="text" id="commentInput" name="content" class="mb-2 p-2 border rounded">
                     <button id="publishButton" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-2" type="submit">Publicar</button>
                 </form>
-                <div id="commentsDisplay">
+                <div>
                     <?php
-                        // Función que muestra los comentarios
-                        function mostrarComentarios() {
-                            include_once '../../ACTIONS/comentario_action.php';
-                        }
+                        include '../../../ACTIONS/comentario_action.php'; // Incluye el archivo donde está definida la función mostrarComentarios()// Llama a la función para mostrar los comentarios
                     ?>
                     <div class="flex justify-between mb-4">
                         <div class="flex items-center">

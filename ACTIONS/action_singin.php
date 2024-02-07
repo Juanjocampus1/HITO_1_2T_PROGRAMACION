@@ -22,7 +22,7 @@
         // Ejecutar la consulta con las variables pasadas directamente al método execute
         $stmt->execute([$name, $email, $hashed_password, $sector]);
         
-        header('Location: login_singin_index.php');
+        header('Location:../public/src/pages/login_singin_index.php');
     } catch (PDOException $e) {
         echo "Error al guardar los datos: " . $e->getMessage();
     }
