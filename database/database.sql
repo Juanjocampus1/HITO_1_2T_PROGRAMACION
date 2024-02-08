@@ -1,27 +1,32 @@
 create database blog;
 use blog;
 
-create table blog.usuario(
-    ID int primary key auto_increment,
-    nombre varchar (30),
+CREATE TABLE usuario(
+    ID_usuario int PRIMARY KEY AUTO_INCREMENT,
+    nombre varchar(30),
     correo varchar(150),
     contrasena text(300),
     sector_profesional varchar(30)
 );
 
-drop table blog.usuario;
+drop table usuario;
 
-create table blog.post(
-    ID int primary key auto_increment,
+CREATE TABLE post(
+    ID_post int PRIMARY KEY AUTO_INCREMENT,
     contenido text(400),
-    fecha timestamp default current_timestamp,
-    autor int,
-    foreign key (autor) references usuario(ID)
+    fecha timestamp DEFAULT CURRENT_TIMESTAMP,
+    ID_usuario int,
+    FOREIGN KEY (ID_usuario) REFERENCES usuario(ID_usuario)
 );
 
-drop table blog.post;
+drop table post;
 
-SELECT * FROM blog.usuario;
-SELECT * FROM blog.post;
+SELECT * FROM usuario;
+SELECT * FROM post;
 
-INSERT INTO blog.post (contenido) VALUES ('hola q tal estas');
+INSERT INTO post (contenido) VALUES ('hola q tal estas');
+
+SELECT post.contenido, post.fecha, usuario.nombre
+FROM post
+INNER JOIN usuario ON post.ID_usuario = usuario.ID_usuario
+ORDER BY post.fecha DESC;

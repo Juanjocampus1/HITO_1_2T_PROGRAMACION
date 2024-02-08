@@ -1,34 +1,31 @@
 <?php
-    include '../config/config.php';
-    global $conn;
+include '../config/config.php';
+global $conn;
 
-    $correo = $_POST['logemail'];
-    $contrasena = $_POST['logpassword'];
+$correo = $_POST['logemail'];
+$contrasena = $_POST['logpassword'];
 
-    $sql = "SELECT ID_usuario, nombre, correo, contrasena FROM blog.usuario WHERE correo = :correo";
+$sql = "SELECT ID_usuario, nombre, correo, contrasena FROM blog.usuario WHERE correo = :correo";
 
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':correo', $correo);
-    $stmt->execute();
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':correo', $correo);
+$stmt->execute();
 
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    var_dump($result);
+if ($result) {
+    if (password_verify($contrasena, $result['contrasena'])) {
+        session_start();
+        $_SESSION['usuario'] = $result['nombre'];
+        $_SESSION['usuario_id'] = $result['ID_usuario']; // Guardar el ID del usuario en la sesión
 
-    if ($result) {
-        if (password_verify($contrasena, $result['contrasena'])) {
-            session_start();
-            $_SESSION['usuario'] = $result['nombre'];
-
-            setcookie('usuario_id', $result['ID_usuario'], time() + (86400 * 30), "/"); // cookie válida por 30 días
-
-
-            header('Location:../public/src/pages/blog_index.php');
-        } else {
-            $error_msg = "credenciales incorrectas";
-        }
+        header('Location:../public/src/pages/blog_index.php');
+    } else {
+        $error_msg = "Credenciales incorrectas";
     }
-    if (!empty($error_msg)) {
-        header("Location:../public/src/pages/login_singin_index.php?error_msg=" . urlencode($error_msg));
-        exit;
-    }
+}
+if (!empty($error_msg)) {
+    header("Location:../public/src/pages/login_singin_index.php?error_msg=" . urlencode($error_msg));
+    exit;
+}
+

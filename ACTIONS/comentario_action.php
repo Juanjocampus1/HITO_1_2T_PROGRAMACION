@@ -4,9 +4,10 @@ function mostrarComentarios() {
 
     $usuario_actual = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
 
-    $sql = "select post.contenido,post.fecha, usuario.nombre
-            from post, usuario
-            order by post.fecha desc;";
+    $sql = "SELECT post.contenido, post.fecha, usuario.nombre
+            FROM post
+            INNER JOIN usuario ON post.ID_usuario = usuario.ID_usuario
+            ORDER BY post.fecha DESC"; // Corregido: Utilizar JOIN explícito y ordenar correctamente
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
