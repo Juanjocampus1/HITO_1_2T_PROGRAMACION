@@ -35,11 +35,10 @@
                                             <input type="password" class="form-style" name="logpassword" placeholder="contraseña" autocomplete="off" minlength="5" title="Mínimo 8 letras">
                                             <i class="input-icon uil uil-lock-alt"></i>
                                             <?php
-                                            // Verificar si hay un mensaje de error en la URL
-                                            if (isset($_GET['error_msg'])) {
-                                                $error_msg = $_GET['error_msg'];
-                                                echo "<br><br><p>$error_msg</p>"; // Mostrar el mensaje de error
-                                            }
+                                                if (isset($_GET['error_msg'])) {
+                                                    $error_msg = $_GET['error_msg'];
+                                                    echo "<br><br><p>$error_msg</p>";
+                                                }
                                             ?>
                                         </div>
                                         <button type="submit" class="btn mt-4">ENVIAR</button>
@@ -70,6 +69,13 @@
                                         <div class="form-group mt-2">
                                             <input type="password" class="form-style" name="singpassword" placeholder="contraseña" autocomplete="off" minlength="5" title="Mínimo 5 palabras" required>
                                             <i class="input-icon uil uil-lock-alt"></i>
+                                            <?php
+
+                                                if (isset($_GET['error_msg'])) {
+                                                    $error_msg = $_GET['error_msg'];
+                                                    echo "<br><br><p>$error_msg</p>";
+                                                }
+                                            ?>
                                         </div>
                                         <div class="form-group mt-2">
                                             <button type="submit" class="btn mt-4">ENVIAR</button>

@@ -17,7 +17,7 @@ if ($result) {
     if (password_verify($contrasena, $result['contrasena'])) {
         session_start();
         $_SESSION['usuario'] = $result['nombre'];
-        $_SESSION['usuario_id'] = $result['ID_usuario']; // Guardar el ID del usuario en la sesión
+        $_SESSION['usuario_id'] = $result['ID_usuario'];
 
         header('Location:../public/src/pages/blog_index.php');
     } else {
