@@ -68,19 +68,21 @@ if (!isset($_SESSION['usuario'])) {
                 <div class="flex justify-end mb-4">
                     <button id="commentButton" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Cerrar</button>
                 </div>
-                <form action="../../../ACTIONS/almacenar_comentario_action.php" method="post" id="commentSection" class="flex justify-center mb-4">
+                <form action="../../../ACTIONS/almacenar_comentario_action.php" method="post" enctype="multipart/form-data" id="commentSection" class="flex justify-center mb-4">
                     <label for="commentInput" class="sr-only">Comentario</label>
-                    <input type="text" id="commentInput" name="content" class="mb-2 p-2 border rounded" placeholder="tu comentario aqui">
+                    <input type="text" id="commentInput" name="content" class="mb-2 p-2 border rounded" placeholder="Tu comentario aquí">
+
                     <label for="subirArchivo" class="cursor-pointer flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full hover:bg-gray-300">
                         <i class="uil uil-paperclip text-black text-2xl"></i>
+                        <input type="file" name="imagen" id="subirArchivo" class="hidden">
                     </label>
-                    <input type="file" id="subirArchivo" class="hidden">
-                    <input type="file" id="fileInput" accept="image/png, image/jpeg" style="display: none;">
+
                     <button type="submit" value="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transform -rotate-45">
                         <i class="uil uil-message text-black text-2xl"></i>
                     </button>
                 </form>
-                    <?php
+
+                <?php
                     if (isset($_GET['error_msg'])) {
                         $error_msg = $_GET['error_msg'];
                         echo "<br><br><p>$error_msg</p>";
