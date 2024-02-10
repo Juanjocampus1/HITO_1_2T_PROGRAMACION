@@ -36,7 +36,7 @@ if (empty($_POST['content'])) {
         header('Location: ../public/src/pages/blog_index.php');
         exit;
     } catch (PDOException $e) {
-        header('Location: ../public/src/pages/blog_index.php?error_msg=' . urlencode('Error al guardar el comentario y la imagen'));
+        header('Location: ../public/src/pages/blog_index.php?error_msg=' . urlencode('Error al guardar el comentario y la imagen o la imagen pesa mucho'));
         exit;
     }
 }

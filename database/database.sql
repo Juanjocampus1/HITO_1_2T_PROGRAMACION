@@ -15,6 +15,8 @@ CREATE TABLE post(
     ID_post int PRIMARY KEY AUTO_INCREMENT,
     contenido text(400),
     fecha timestamp DEFAULT CURRENT_TIMESTAMP,
+    imagen longblob,
+    mime_type VARCHAR(255),
     ID_usuario int,
     FOREIGN KEY (ID_usuario) REFERENCES usuario(ID_usuario)
 );
@@ -26,7 +28,9 @@ SELECT * FROM post;
 
 INSERT INTO post (contenido) VALUES ('hola q tal estas');
 
-SELECT post.contenido, post.fecha, usuario.nombre
+SELECT post.contenido, post.fecha, post.imagen, post.mime_type, usuario.nombre
 FROM post
 INNER JOIN usuario ON post.ID_usuario = usuario.ID_usuario
 ORDER BY post.fecha DESC;
+
+SELECT COUNT(*) AS count FROM blog.usuario WHERE correo = 'juanjo@gmail.com';
