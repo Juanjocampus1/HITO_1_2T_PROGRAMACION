@@ -71,15 +71,14 @@ if (!isset($_SESSION['usuario'])) {
                 <form action="../../../ACTIONS/almacenar_comentario_action.php" method="post" id="commentSection" class="flex justify-center mb-4">
                     <label for="commentInput" class="sr-only">Comentario</label>
                     <input type="text" id="commentInput" name="content" class="mb-2 p-2 border rounded" placeholder="tu comentario aqui">
-                    <div id="subirArchivo" class="cursor-pointer">
+                    <label for="subirArchivo" class="cursor-pointer flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full hover:bg-gray-300">
                         <i class="uil uil-paperclip text-black text-2xl"></i>
-                    </div>
+                    </label>
+                    <input type="file" id="subirArchivo" class="hidden">
                     <input type="file" id="fileInput" accept="image/png, image/jpeg" style="display: none;">
-                    <span class="text-white font-bold py-1 px-3 rounded text-md -rotate-45">
-                        <button type="submit" value="">
-                            <i class="uil uil-message text-black text-2xl"></i>
-                        </button>
-                    </span>
+                    <button type="submit" value="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transform -rotate-45">
+                        <i class="uil uil-message text-black text-2xl"></i>
+                    </button>
                 </form>
                     <?php
                     if (isset($_GET['error_msg'])) {
@@ -114,6 +113,7 @@ if (!isset($_SESSION['usuario'])) {
     </footer>
 <script src="../components/blog.js"></script>
 <script src="../components/actualizar_comentarios.js"></script>
-<script src="../components/subir_imagen.js"></script>
+<script src="../components/script.js"></script>
+<!--<script src="../components/subir_imagen.js"></script>-->
 </body>
 </html>

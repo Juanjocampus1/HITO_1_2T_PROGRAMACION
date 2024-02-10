@@ -3,52 +3,63 @@ include '../config/config.php';
 global $conn;
 session_start();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['usuario'])) {
-    $comentario = isset($_POST['content']) ? $_POST['content'] : null;
-    $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
+class Comentario {
+    private $contenido;
+    private $usuarioId;
 
-    $archivo_nombre = $_FILES['archivo']['name'];
-    $archivo_tipo = $_FILES['archivo']['type'];
-    $archivo_tamano = $_FILES['archivo']['size'];
-    $archivo_tmp = $_FILES['archivo']['tmp_name'];
-    $archivo_error = $_FILES['archivo']['error'];
+    public function __construct($contenido, $usuarioId) {
+        $this->contenido = $contenido;
+        $this->usuarioId = $usuarioId;
+    }
 
-    $rutaDestino = '../uploads/' . $archivo_nombre;
+    public function getContenido() {
+        return $this->contenido;
+    }
 
-    if ($archivo_error === UPLOAD_ERR_OK) {
-        if (move_uploaded_file($archivo_tmp, $rutaDestino)) {
+    public function getUsuarioId() {
+        return $this->usuarioId;
+    }
+}
 
-            try {
-                $sql = "INSERT INTO blog.post (contenido, imagen, ID_usuario) VALUES (:contenido, :imagen, :idUsuario)";
-                $stmt = $conn->prepare($sql);
-                $stmt->bindParam(':contenido', $comentario);
-                $stmt->bindParam(':imagen', $rutaDestino);
-                $stmt->bindParam(':idUsuario', $usuario_id);
-                $stmt->execute();
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['usuario_id'])) {
 
-                header('Location: ../public/src/pages/blog_index.php');
-                exit;
-            } catch (PDOException $e) {
-                header('Location: ../public/src/pages/blog_index.php?error_msg=' . urlencode('Error al guardar el comentario y la imagen'));
-                exit;
-            }
-        } else {
-            header('Location: ../public/src/pages/blog_index.php?error_msg=' . urlencode('Error al subir la imagen'));
-            exit;
-        }
-    } else {
+    $comentario = isset($_POST['content']) ? new Comentario($_POST['content'], $_SESSION['usuario_id']) : null;
+
+    if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] === UPLOAD_ERR_OK) {
+        $contenidoImagen = addcslashes(file_get_contents($_FILES['imagen']['tmp_name']), "\0");
+
         try {
-            $sql = "INSERT INTO blog.post (contenido, ID_usuario) VALUES (:contenido, :idUsuario)";
+            $sql = "INSERT INTO blog.post (contenido, imagen, ID_usuario) VALUES (:contenido, :imagen, :idUsuario)";
             $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':contenido', $comentario);
-            $stmt->bindParam(':idUsuario', $usuario_id);
+            $coment = $comentario->getContenido();
+            $stmt->bindParam(':contenido', $coment);
+            $stmt->bindParam(':imagen', $contenidoImagen, PDO::PARAM_LOB);
+            $idUsuario = $comentario->getUsuarioId();
+            $stmt->bindParam(':idUsuario', $idUsuario);
             $stmt->execute();
 
             header('Location: ../public/src/pages/blog_index.php');
             exit;
         } catch (PDOException $e) {
-            header('Location: ../public/src/pages/blog_index.php?error_msg=' . urlencode('Error al guardar el comentario'));
+            header('Location: ../public/src/pages/blog_index.php?error_msg=' . urlencode('Error al guardar la imagen'));
             exit;
         }
+    }
+
+    // Si no se envió un archivo, insertar solo el comentario
+    try {
+        $sql = "INSERT INTO blog.post (contenido, ID_usuario) VALUES (:contenido, :idUsuario)";
+        $stmt = $conn->prepare($sql);
+        $coment = $comentario->getContenido();
+        $stmt->bindParam(':contenido', $coment);
+        $idUsuario = $comentario->getUsuarioId();
+        $stmt->bindParam(':idUsuario', $idUsuario);
+        $stmt->execute();
+
+        header('Location: ../public/src/pages/blog_index.php');
+        exit;
+    } catch (PDOException $e) {
+        header('Location: ../public/src/pages/blog_index.php?error_msg=' . urlencode('Error al guardar el comentario'));
+        exit;
     }
 }
