@@ -69,13 +69,24 @@ if (!isset($_SESSION['usuario'])) {
                     <button id="commentButton" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Cerrar</button>
                 </div>
                 <form action="../../../ACTIONS/almacenar_comentario_action.php" method="post" id="commentSection" class="flex justify-center mb-4">
+                    <label for="commentInput" class="sr-only">Comentario</label>
                     <input type="text" id="commentInput" name="content" class="mb-2 p-2 border rounded" placeholder="tu comentario aqui">
+                    <div id="subirArchivo" class="cursor-pointer">
+                        <i class="uil uil-paperclip text-black text-2xl"></i>
+                    </div>
+                    <input type="file" id="fileInput" accept="image/png, image/jpeg" style="display: none;">
                     <span class="text-white font-bold py-1 px-3 rounded text-md -rotate-45">
-                        <button type="submit" name="logout" value="">
+                        <button type="submit" value="">
                             <i class="uil uil-message text-black text-2xl"></i>
                         </button>
                     </span>
                 </form>
+                    <?php
+                    if (isset($_GET['error_msg'])) {
+                        $error_msg = $_GET['error_msg'];
+                        echo "<br><br><p>$error_msg</p>";
+                    }
+                    ?>
                 <div>
                     <?php
                         include '../../../ACTIONS/comentario_action.php'; // Incluye el archivo donde está definida la función mostrarComentarios()// Llama a la función para mostrar los comentarios
@@ -85,23 +96,24 @@ if (!isset($_SESSION['usuario'])) {
         </div>
     </div>
 </section>
-<footer id="redes" class=" shadoww text-white p-2 footer rounded-xl FOO">
-    <div class="containeer">
-        <a href="https://www.youtube.com" class="aa" style="--color: #e1306c">
-            <i class="uil uil-youtube"></i>
-        </a>
-        <a href="https://twitter.com/home?lang=es" class="aa" style="--color: #0072b1">
-            <i class="uil uil-twitter"></i>
-        </a>
-        <a href="https://www.instagram.com" class="aa" style="--color: #e81cff">
-            <i class="uil uil-instagram"></i>
-        </a>
-        <a href="https://github.com/Juanjocampus1" class="aa" style="--color: #282330">
-            <i class="uil uil-github"></i>
-        </a>
-    </div>
-</footer>
+    <footer id="redes" class=" shadoww text-white p-2 footer rounded-xl FOO">
+        <div class="containeer">
+            <a href="https://www.youtube.com" class="aa" style="--color: #e1306c">
+                <i class="uil uil-youtube"></i>
+            </a>
+            <a href="https://twitter.com/home?lang=es" class="aa" style="--color: #0072b1">
+                <i class="uil uil-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com" class="aa" style="--color: #e81cff">
+                <i class="uil uil-instagram"></i>
+            </a>
+            <a href="https://github.com/Juanjocampus1" class="aa" style="--color: #282330">
+                <i class="uil uil-github"></i>
+            </a>
+        </div>
+    </footer>
 <script src="../components/blog.js"></script>
 <script src="../components/actualizar_comentarios.js"></script>
+<script src="../components/subir_imagen.js"></script>
 </body>
 </html>
