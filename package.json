@@ -5,7 +5,7 @@
   "main": "index.php",
   "scripts": {
     "dev": "php -S localhost:8000 -t public",
-    "start": "node public/src/scripts/dev.js",
+    "start": "node public/src/scripts/dev.config.js",
     "build": "npm run clean && npm run compile",
     "clean": "rimraf public/build",
     "compile": "webpack --config webpack.config.js",
