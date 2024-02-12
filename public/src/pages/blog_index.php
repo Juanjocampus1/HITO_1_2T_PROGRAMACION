@@ -40,7 +40,7 @@ if (!isset($_SESSION['usuario'])) {
 </nav>
 <section id="blog" class="py-12">
     <div class="container mx-auto px-4">
-        <form action="../../../ACTIONS/log-out_action.php" method="post" class="flex justify-end mb-4">
+        <form action="../../../APIs/log-out_action.php" method="post" class="flex justify-end mb-4">
             <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-lg">
             <input type="submit" name="logout" value="Cerrar sesión" >
             <i class="uil uil-signout"></i>
@@ -68,6 +68,18 @@ if (!isset($_SESSION['usuario'])) {
                 <div class="flex justify-end mb-4">
                     <button id="commentButton" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Cerrar</button>
                 </div>
+
+                <div id="loader"  style="display: none;" class="dot-spinner">
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                </div>
+
                 <form action="../../../ACTIONS/almacenar_comentario_action.php" method="post" enctype="multipart/form-data" id="commentSection" class="flex justify-center mb-4">
                     <label for="commentInput" class="sr-only">Comentario</label>
                     <input type="text" id="commentInput" name="content" class="mb-2 p-2 border rounded" placeholder="Tu comentario aquí">
@@ -116,6 +128,6 @@ if (!isset($_SESSION['usuario'])) {
 <script src="../components/blog.js"></script>
 <script src="../components/actualizar_comentarios.js"></script>
 <script src="../components/script.js"></script>
-<!--<script src="../components/subir_imagen.js"></script>-->
+<script src="../components/loader.js"></script>
 </body>
 </html>

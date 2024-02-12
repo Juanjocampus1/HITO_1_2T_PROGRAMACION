@@ -22,13 +22,17 @@ if ($result) {
 
         header('Location: ../public/src/pages/blog_index.php');
     }
+    else {
+        header('Location: ../public/src/pages/login_singin_index.php');
+        $error_msg = "Credenciales incorrectas";
+    }
 }
 else {
     header('Location: ../public/src/pages/login_singin_index.php');
     $error_msg = "Credenciales incorrectas";
 }
+
 if (!empty($error_msg)) {
     header("Location:../public/src/pages/login_singin_index.php?error_msg=" . urlencode($error_msg));
     exit;
 }
-
