@@ -15,8 +15,8 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     </head>
     <body class="bg-gradient-to-r from-zinc-600 to-zinc-800 text-gray-900 font-sans grid grid-rows-layout gap-y-8">
-        <nav>
-            <ul class="ul mt-4">
+        <nav >
+            <ul class="border-solid border-2 border-zinc-500 ul mt-4 rounded-xl">
                 <li class="li">
                     <a href="#POO">
                         <i class="fa-solid fa-cube"></i>
@@ -37,7 +37,7 @@
         </nav>
         <div>
             <div class=" w-full max-w-[1400px] mx-auto grid grid-rows-3 grid-cols-4 gap-x-8 gap-y-8 mb-4 auto-rows-auto min-h-screen">
-                <div class="col-span-4 row-span-1  text-white p-2 rounded-xl">
+                <div class="col-span-4 row-span-1 text-white p-2 rounded-xl">
                     <div class="h-32"></div>
                     <h1 id="POO" class="text-3xl font-bold text-center opacity-75 mb-8">Diferencias entre lenguajes de programación</h1>
                 </div>

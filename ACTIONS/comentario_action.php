@@ -59,6 +59,7 @@ function mostrarImagen($row, $usuario_actual){
         src='" . $base64Prefix . base64_encode($row['imagen']) . "' 
         alt='Imagen del comentario' 
         class='rounded-lg shadow-md mb-4'
+        loading='lazy'
         >";
     echo "<p class='text-right text-xs'><strong>Publicado:</strong> " . $row['fecha'] . "</p>";
     echo "</div>";
