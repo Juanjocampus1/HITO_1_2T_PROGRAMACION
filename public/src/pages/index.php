@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     </head>
-    <body class="bg-gradient-to-r from-zinc-600 to-zinc-800 text-gray-900 font-sans">
+    <body class="bg-gradient-to-r from-zinc-600 to-zinc-800 text-gray-900 font-sans grid grid-rows-layout gap-y-8">
         <nav>
             <ul class="ul mt-4">
                 <li class="li">
@@ -36,45 +36,83 @@
             </ul>
         </nav>
         <div>
-        <div class="grid place-items-center min-h-screen">
-            <div class="container mx-auto px-4">
-                <h1 class="text-3xl font-bold text-center mb-8">Diferencias entre lenguajes de programación</h1>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="shadow-2xl p-6 rounded-lg shadow-md" id="POO">
-                        <h2 class="text-xl font-semibold mb-2 text-white">Orientada a Objetos</h2>
-                        <p class="text-white">Los lenguajes de programación orientada a objetos (OOP) se basan en el concepto de objetos, que pueden contener datos y métodos. Las principales características de la OOP son:</p>
-                        <ul class="mt-4 list-disc list-inside text-white">
-                            <li>Encapsulación</li>
-                            <li>Herencia</li>
-                            <li>Polimorfismo</li>
-                            <li>Abstracción</li>
-                        </ul>
-                    </div>
-                    <div class="shadow-2xl p-6 rounded-lg shadow-md">
-                        <h2 class="text-xl font-semibold mb-2 text-white">A Eventos</h2>
-                        <p class="text-white">Los lenguajes de programación a eventos se centran en la interacción del usuario con la interfaz de usuario. Las principales características de la programación a eventos son:</p>
-                        <ul class="mt-4 list-disc list-inside text-white">
-                            <li>Manejo de eventos</li>
-                            <li>Respuesta a acciones del usuario</li>
-                            <li>Asincronía</li>
-                        </ul>
-                    </div>
-                    <div class="shadow-2xl p-6 rounded-lg shadow-md" ">
-                        <h2 class="text-xl font-semibold mb-2 text-white">Procedimentales</h2>
-                        <p class="text-white">Los lenguajes de programación procedimentales se centran en la secuencia de instrucciones que se ejecutan una tras otra. Las principales características de la programación procedimental son:</p>
-                        <ul class="mt-4 list-disc list-inside text-white">
-                            <li>Ejecución secuencial</li>
-                            <li>Variables y funciones</li>
-                            <li>Control de flujo</li>
-                        </ul>
+            <div class=" w-full max-w-[1400px] mx-auto grid grid-rows-3 grid-cols-4 gap-x-8 gap-y-8 mb-4 auto-rows-auto min-h-screen">
+                <div class="col-span-4 row-span-1  text-white p-2 rounded-xl">
+                    <div class="h-32"></div>
+                    <h1 id="POO" class="text-3xl font-bold text-center opacity-75 mb-8">Diferencias entre lenguajes de programación</h1>
+                </div>
+                <div class="col-span-2 row-span-3 p-4 shadoww rounded-xl">
+                    <div class="overflow-auto">
+                        <p id="JSON" class="textToSearch text-white opacity-75 text-lg md:text-xl lg:text-2xl">
+                            <strong>
+                                PROGRAMACIÓN ORIENTADA A EVENTOS
+                                <br>
+                                <br>
+                            </strong>
+                            Los lenguajes de programación a eventos se centran en la interacción del usuario con
+                            la interfaz de usuario y la respuesta a las acciones del usuario. Las principales características
+                            de la programación a eventos son: manejo de eventos, respuesta a acciones del usuario y asincronía.
+                            <br>
+                            <br>
+                            La programación a eventos es común en el desarrollo de aplicaciones de interfaz de usuario y
+                            aplicaciones web, donde la interacción del usuario con la interfaz de usuario es fundamental
+                            para la funcionalidad de la aplicación. Los lenguajes de programación a eventos suelen
+                            proporcionar una forma de asociar eventos del usuario, como clics de ratón o pulsaciones de
+                            teclas, con funciones o métodos que se ejecutan en respuesta a esos eventos.
+                        </p>
+                        <br>
                     </div>
                 </div>
+
+                <div class="col-span-2 row-span-3 p-4 shadoww rounded-xl">
+                    <div class="overflow-auto  mr-4">
+                        <p id="JSON" class="textToSearch text-white opacity-75 text-lg md:text-xl lg:text-2xl">
+                            <strong>
+                                PROGRAMACIÓN PROCEDIMENTAL
+                                <br>
+                                <br>
+                            </strong>
+                            Los lenguajes de programación procedimentales se centran en la secuencia de instrucciones que se
+                            ejecutan una tras otra. Las principales características de la programación procedimental son:
+                            ejecución secuencial, variables y funciones, y control de flujo.
+                            <br>
+                            <br>
+                            La programación procedimental es común en el desarrollo de aplicaciones de línea de comandos y
+                            aplicaciones de procesamiento de datos, donde la secuencia de instrucciones es fundamental para
+                            la funcionalidad de la aplicación. Los lenguajes de programación procedimentales suelen proporcionar
+                            una forma de definir variables y funciones, y controlar el flujo de ejecución de las instrucciones.
+                        </p>
+                        <br>
+                    </div>
+
+                </div>
+                <div class="col-span-4 row-span-1 shadoww text-white p-2 rounded-xl">
+                    <p id="XML" class="textToSearch text-white opacity-75 text-lg md:text-xl lg:text-2xl">
+                        <strong>
+                            Orientada a Objetos
+                            <br>
+                            <br>
+                        </strong>
+                        La programación orientada a objetos se centra en la definición de objetos y su interacción entre sí.
+                        Las principales características de la programación orientada a objetos son: definición de clases y
+                        objetos, encapsulación y herencia, y polimorfismo.
+                        <br>
+                        <br>
+                        La programación orientada a objetos es común en el desarrollo de aplicaciones de software, donde
+                        la definición de objetos y su interacción es fundamental para la funcionalidad de la aplicación.
+                        Los lenguajes de programación orientada a objetos suelen proporcionar una forma de definir clases
+                        y objetos, encapsular datos y funcionalidad en objetos, y heredar y sobrescribir funcionalidad de
+                        otros objetos.
+                    </p>
+                </div>
             </div>
+            <div class="h-32"></div>
             <div class="mx-auto btnn" id="acceder">
                 <a href="blog_index.php">ACCEDER AL BLOG</a>
             </div>
+            <div class="h-32"></div>
         </div>
-        <footer id="redes" class=" shadow-2xl text-white p-2 footer rounded-xl FOO">
+        <footer id="redes" class=" shadow-2xl border-solid border-2 border-zinc-500 text-white p-2 footer rounded-xl FOO">
             <div class="containeer">
                 <a href="https://www.youtube.com" class="aa" style="--color: #e1306c">
                     <i class="uil uil-youtube"></i>
