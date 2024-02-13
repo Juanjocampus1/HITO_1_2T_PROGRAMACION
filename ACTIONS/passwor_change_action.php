@@ -31,11 +31,14 @@ if ($result) {
         // Redirigir al usuario a la página de inicio de sesión
         header('Location:../public/src/pages/login_singin_index.php');
         exit;
-    } else {
+    }
+    else {
         // Las contraseñas no coinciden
         $error_msg = "Las contraseñas no coinciden";
+        header('Location:../public/src/pages/password_change.php');
+        exit;
     }
 } else {
     // No se encontró ningún usuario con el correo electrónico proporcionado
-    $error_msg = "El correo electrónico proporcionado no está registrado";
+    $error_msg = "no existe un usuario con ese correo electrónico";
 }
