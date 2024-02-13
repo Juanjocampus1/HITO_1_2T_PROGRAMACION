@@ -24,9 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_BCRYPT, $opcion);
 
     try {
-        $sql_insertar_usuario = "INSERT INTO usuario (nombre, correo, contrasena, sector_profesional) VALUES (?, ?, ?, ?)";
+        $sql_insertar_usuario = "INSERT INTO usuario (nombre, correo, contrasena, sector_profesional)
+                                VALUES (?, ?, ?, ?)";
         $stmt_insertar_usuario = $conn->prepare($sql_insertar_usuario);
-
         $stmt_insertar_usuario->execute([$name, $email, $hashed_password, $sector]);
 
         header('Location:../public/src/pages/login_singin_index.php');

@@ -20,7 +20,6 @@ if (empty($_POST['content'])) {
         $stmt->bindParam(':imagen', $imagen, PDO::PARAM_LOB);
         $stmt->bindParam(':mime_type', $mime_type);
         $stmt->bindParam(':idUsuario', $usuario_id);
-
     }
     else {
         header('Location: ../public/src/pages/blog_index.php?error_msg=' . urlencode('No se recibio la imagen'));
